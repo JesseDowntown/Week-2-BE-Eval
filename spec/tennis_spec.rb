@@ -49,6 +49,8 @@ describe Tennis::Player do
     end
   end
 
+  describe
+
   describe '#score' do
     context 'when points is 0' do
       it 'returns love' do
@@ -77,6 +79,15 @@ describe Tennis::Player do
         player.points = 3
 
         expect(player.score).to eq('forty')
+      end
+    end
+
+    context 'when player wins 4 points to 2' do
+      it 'returns win' do
+        player.points = 4
+        player.opponent.points = 2
+
+        expect(player.score).to eq('win')
       end
     end
   end
