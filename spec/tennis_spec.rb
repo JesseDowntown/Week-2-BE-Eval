@@ -115,7 +115,16 @@ describe Tennis::Player do
           player.points = 6
           player.opponent.points = 5
 
-          expect(player.score).to eq ('ad player')
+          expect(player.score).to eq('ad player')
+        end
+      end
+
+      context 'when player has 1 less point than opponent' do
+        it 'returns ad opponent' do
+          player.points = 6
+          player.opponent.points = 7
+
+          expect(player.score).to eq('ad opponent')
         end
       end
     end
