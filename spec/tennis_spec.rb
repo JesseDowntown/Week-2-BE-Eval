@@ -82,30 +82,41 @@ describe Tennis::Player do
       end
     end
 
-    context 'when player wins 4 points to 2' do
-      it 'returns win' do
-        player.points = 4
-        player.opponent.points = 2
+    context 'when player has more than 3 points' do
+      context 'when player wins 4 points to 2' do
+        it 'returns win' do
+          player.points = 4
+          player.opponent.points = 2
 
-        expect(player.score).to eq('win')
+          expect(player.score).to eq('win')
+        end
       end
-    end
 
-    context 'when player wins 6 points to 4' do
-      it 'returns win' do
-        player.points = 6
-        player.opponent.points = 4
+      context 'when player wins 6 points to 4' do
+        it 'returns win' do
+          player.points = 6
+          player.opponent.points = 4
 
-        expect(player.score).to eq('win')
+          expect(player.score).to eq('win')
+        end
       end
-    end
 
-    context 'when the score is tied' do
-      it 'returns deuce' do
-        player.points = 4
-        player.opponent.points = 4
+      context 'when the score is tied' do
+        it 'returns deuce' do
+          player.points = 4
+          player.opponent.points = 4
 
-        expect(player.score).to eq('deuce')
+          expect(player.score).to eq('deuce')
+        end
+      end
+
+      context 'when player has 1 more point than opponent' do
+        it 'returns ad player' do
+          player.points = 6
+          player.opponent.points = 5
+
+          expect(player.score).to eq ('ad player')
+        end
       end
     end
   end
